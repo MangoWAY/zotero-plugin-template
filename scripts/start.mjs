@@ -2,7 +2,7 @@ import details from "../package.json" assert { type: "json" };
 import { Logger } from "./utils.mjs";
 import cmd from "./zotero-cmd.json" assert { type: "json" };
 import { spawn } from "child_process";
-import { existsSync, readFileSync, writeFileSync, rmSync } from "fs";
+import { existsSync, readFileSync, writeFileSync, rmSync, mkdirSync } from "fs";
 import { clearFolder } from "./utils.mjs";
 import path from "path";
 import { exit } from "process";
@@ -29,6 +29,10 @@ function prepareDevEnv() {
   const buildPath = path.resolve("build/addon");
 
   function writeAddonProxyFile() {
+    const dirPath = path.dirname(addonProxyFilePath);
+    if (!existsSync(dirPath)) {
+      mkdirSync(dirPath, { recursive: true });
+    }
     writeFileSync(addonProxyFilePath, buildPath);
     Logger.debug(
       `Addon proxy file has been updated. 
