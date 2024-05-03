@@ -223,6 +223,11 @@ Tired of endless restarting? Forget about it!
 
 When file changes are detected in `src` or `addon`, the plugin will be automatically compiled and reloaded.
 
+> If the plugin does not take effect
+> 1. Find the plug-in and enable it;
+> 2. Turn off Zotero;
+> 3. Run the npm command again;
+
 <details style="text-indent: 2em">
 <summary>💡 Steps to add this feature to an existing plugin</summary>
 
@@ -236,12 +241,13 @@ When file changes are detected in `src` or `addon`, the plugin will be automatic
 #### Debug in Zotero
 
 You can also:
-
 - Test code snipastes in Tools -> Developer -> Run Javascript;
 - Debug output with `Zotero.debug()`. Find the outputs in Help->Debug Output Logging->View Output;
 - Debug UI. Zotero is built on the Firefox XUL framework. Debug XUL UI with software like [XUL Explorer](https://udn.realityripple.com/docs/Archive/Mozilla/XUL_Explorer).
   > XUL Documentation: <http://www.devdoc.net/web/developer.mozilla.org/en-US/docs/XUL.html>
 
+- firefox download: https://ftp.mozilla.org/pub/firefox/releases/
+- use firfoe web devtool: https://zotero.yuque.com/staff-gkhviy/developer/bveutx?
 ### 4 Build
 
 Run `npm run build` to build the plugin in production mode, and the xpi for installation and the built code is under `build` folder.
